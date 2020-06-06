@@ -1,0 +1,104 @@
+/****************************************
+****** COMANDOS ANGULAR *****************
+*****************************************/
+
+
+--Crear nuevo proyecto
+ng new [prokect name]
+--Generar nuevo componente
+ng g c [component name]
+--Generar un nuevo servicio
+ng generate service [service name]
+
+
+
+/********************************************************************
+******      CORRER APLICACION CONSTRUIDA (BUILD)   *****************
+*********************************************************************/
+
+
+--Correr aplicacion con la carpeta dist
+1. Recordar que no es necesario usar el proxy, las rutas de los servicios van completas
+
+2. Construir el proyecto
+   ng build --prod 
+
+3. Ejecutar el comando para instalar servidor (angular-http-server)
+
+   npm install angular-http-server -g
+   
+4. Correr el servidor con la aplicacion construida
+   angular-http-server --path [ruta Proyecto dist]   **En linux no se necesita ponerle --path
+
+
+/********************************************************************
+******      CORRER APLICACION EN SERVE CON PROXYS   *****************
+*********************************************************************/
+
+1. Crear el archivo proxy.config.json
+{
+  "/company/*": {
+    "target": "http://18.218.22.133:9000",
+    "secure": false,
+    "logLevel" : "debug"
+
+  }
+}
+
+ 
+2. Editar el archivo package.json
+   "start": "ng serve --proxy-config proxy.config.json",
+
+3. Cambiar las rutas en los servicios quitando ip y puerto
+4. Ejecutar el comando  para correr server
+   npm start
+
+
+
+/********************************************************************
+******     DOCKER INSTRUCCIONES   *****************
+*********************************************************************/
+
+
+Docker on aws instance
+
+--Update aws
+sudo yum update -y
+--Install Docker
+sudo yum install docker -y
+--Ver el estado de Docker
+sudo service docker status
+
+--Arrancar  Docker
+sudo service docker start
+
+--Añadir usuario a grupo de docker
+sudo usermod -a -G docker ec2-user
+
+*******************************************
+
+--Agregar imagenen
+docker build -f DockerFile -t covaws .
+docker build -f DockerFile -t covafront .
+
+--Correr el contenedor
+docker run --name covaws-container -p 9000:9000 covaws
+docker run --name covafront-container -d -p 8888:8080 covafront
+
+--Arrancarlo de nuevo
+docker start [CONTAINER_name]
+
+
+************  Adicional ****************
+
+--Listar imagenes
+docker images -a
+
+--Borrar todas las imagenes
+docker rmi $(docker images -a -q)
+
+-- Listar contenedores
+docker ps -a
+
+-- Borrar todos los contenedores contenedores
+docker rm $(docker ps -a -q)

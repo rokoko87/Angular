@@ -1,0 +1,17 @@
+# base image
+FROM node:13.12.0
+
+# set working directory
+WORKDIR /app
+
+
+
+#Instalar dependencias y el servidor para correr la aplicacion
+RUN npm install
+RUN npm install angular-http-server -g
+
+# add app
+ADD CovaFrontAngular /app
+
+# start app
+CMD angular-http-server /app
