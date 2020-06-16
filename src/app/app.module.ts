@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +14,7 @@ import { EntregasComponent } from './entregas/entregas.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { EntrarEmpresaComponent } from './entrar-empresa/entrar-empresa.component';
 import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
+import { AggridComponent } from './aggrid/aggrid.component';
 
 @NgModule({
   declarations: [
@@ -24,13 +26,15 @@ import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
     EntregasComponent,
     ContactoComponent,
     EntrarEmpresaComponent,
-    CrearEmpresaComponent
+    CrearEmpresaComponent,
+    AggridComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
   ],
   providers: [],
   bootstrap: [AppComponent, NavigationComponent, HomeComponent, InventarioComponent, FooterComponent, EntregasComponent, ContactoComponent, EntrarEmpresaComponent,CrearEmpresaComponent]
