@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Empresa } from './entrar-empresa/empresa';
+import { AltaEmpresaRequest } from './crear-empresa/altaEmpresaRequest';
+import { AltaEmpresa } from './crear-empresa/alta_empresa';
 import { EmpresaResult } from './entrar-empresa/empresaResult';
 import { EmpresaRequest } from './entrar-empresa/empresaRequest';
 import { Observable, of } from 'rxjs';
@@ -19,7 +21,7 @@ export class CompanyService {
     this.corsHeaders = new HttpHeaders({
       'Content-Type': 'application/json',
       'Accept': 'application/json'
- 
+
      });
   }
 
@@ -39,8 +41,22 @@ export class CompanyService {
     });
 
     return of(this.empresas);
-    
   }
-  
+
+
+
+
+
+
+  crearEmpresa (infoAlta : AltaEmpresa) {
+
+     const urlCrearEmpresa = '/company/create/';
+     let altaEmpresaRequest = new AltaEmpresaRequest(0, "angular", infoAlta)
+     this.http.post<number>(urlCrearEmpresa, altaEmpresaRequest, { observe: 'response', headers: this.corsHeaders }).subscribe(data => {
+       console.info(data);
+
+     });
+
+  }
 
 }

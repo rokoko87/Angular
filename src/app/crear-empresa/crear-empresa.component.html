@@ -1,0 +1,64 @@
+<br/>
+<br/>
+<br/>
+
+
+<p>Crear empresa</p>
+
+<form [formGroup]="companyForm">
+
+  <label>
+    Nombre:
+    <input type="text" formControlName="nombre">
+  </label>
+
+  <label>
+    Descripción corta:
+    <input type="text" formControlName="descCorta">
+  </label>
+
+  <label>
+    Descripción extensa:
+    <input type="text" formControlName="descripcion">
+  </label>
+
+
+
+  <label>
+    Email:
+    <input type="text" formControlName="email">
+  </label>
+
+
+  <label>
+    Password:
+    <input type="text" formControlName="password">
+  </label>
+
+
+
+
+  <label>
+    Primer Nombre:
+    <input type="text" formControlName="primerNombre">
+  </label>
+
+  <label>
+    Apellido Materno:
+    <input type="text" formControlName="apellidoPaterno">
+  </label>
+
+  <label>
+    Apellido Paterno:
+    <input type="text" formControlName="apellidoMaterno">
+  </label>
+
+  <label>
+    Telefono Movil:
+    <input type="text" formControlName="telefonoMovil">
+  </label>
+
+
+  <button type="submit" [disabled]="!companyForm.valid"  (click)="guardar()" >Guardar</button>
+
+</form>
