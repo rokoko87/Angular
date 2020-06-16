@@ -50,22 +50,22 @@ export class CrearEmpresaComponent implements OnInit {
               descCorta,
               descripcion,
 
-              200, //Plan
+              "200", /*Plan */
 
               password,
               email,
 
-              telefonoMovil,   //Empresa contacto
-              email, //Empresa correo electronico
+              telefonoMovil,   /*Empresa contacto*/
+              email, /*Empresa correo electronico */
 
               primerNombre,
               "",
               apellidoPaterno,
               apellidoMaterno,
 
-              1, //Genero
-              telefonoMovil, //Persona tel celular
-              "", //Telefono de casa
+              1, /* Genero */
+              telefonoMovil, /* Persona tel celular */
+              "", /* Telefono de casa */
 
               393,
               484,
@@ -75,7 +75,7 @@ export class CrearEmpresaComponent implements OnInit {
       console.info(info);
 
       this.companyService.crearEmpresa(info);
-      
+
   }
 
 

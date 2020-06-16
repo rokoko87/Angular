@@ -1,64 +1,118 @@
+<header class="masthead">
+  <div class="container">
+    <div class="intro-text">
+      <div class="intro-lead-in">Crea tu empresa</div>
+      <div class="intro-heading text-uppercase">Ingresa los datos requeridos</div>
+    </div>
+  </div>
+</header>
+
 <br/>
 <br/>
 <br/>
 
+<div class="container">
 
-<p>Crear empresa</p>
-
-<form [formGroup]="companyForm">
-
-  <label>
-    Nombre:
-    <input type="text" formControlName="nombre">
-  </label>
-
-  <label>
-    Descripción corta:
-    <input type="text" formControlName="descCorta">
-  </label>
-
-  <label>
-    Descripción extensa:
-    <input type="text" formControlName="descripcion">
-  </label>
+  <form [formGroup]="companyForm">
 
 
-
-  <label>
-    Email:
-    <input type="text" formControlName="email">
-  </label>
-
-
-  <label>
-    Password:
-    <input type="text" formControlName="password">
-  </label>
-
-
-
-
-  <label>
-    Primer Nombre:
-    <input type="text" formControlName="primerNombre">
-  </label>
-
-  <label>
-    Apellido Materno:
-    <input type="text" formControlName="apellidoPaterno">
-  </label>
-
-  <label>
-    Apellido Paterno:
-    <input type="text" formControlName="apellidoMaterno">
-  </label>
-
-  <label>
-    Telefono Movil:
-    <input type="text" formControlName="telefonoMovil">
-  </label>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" class="form-control" placeholder="Nombre de la empresa"  formControlName="nombre">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="descCorta">Descripción corta:</label>
+          <input type="text" id="descCorta" class="form-control" placeholder="Eslogan" formControlName="descCorta">
+        </div>
+      </div>
+    </div>
 
 
-  <button type="submit" [disabled]="!companyForm.valid"  (click)="guardar()" >Guardar</button>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+           <textarea id="descripcion" class="form-control" placeholder="Descripción" formControlName="descripcion" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
 
-</form>
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="text" id="email" class="form-control" placeholder="Correo electonico" formControlName="email">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="password">Contraseña:</label>
+          <input type="text" id="password" class="form-control" placeholder="Contraseña" formControlName="password">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="primerNombre">Primer nombre:</label>
+          <input type="text" id="primerNombre" class="form-control" placeholder="Primer Nombre"  formControlName="primerNombre">
+        </div>
+      </div>
+      <div class="col">
+
+      </div>
+    </div>
+
+
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="apellidoPaterno">Apellido Paterno:</label>
+          <input type="text" id="apellidoPaterno" class="form-control" placeholder="Apellido Paterno" formControlName="apellidoPaterno">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="apellidoMaterno">Apellido Materno:</label>
+          <input type="text" id="apellidoMaterno" class="form-control" placeholder="Apellido Materno"  formControlName="apellidoMaterno">
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="telefonoMovil">Teléfono:</label>
+          <input type="text" id="telefonoMovil" class="form-control" placeholder="Telefono celular"  formControlName="telefonoMovil">
+        </div>
+      </div>
+      <div class="col">
+
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+
+      </div>
+      <div class="col">
+
+      </div>
+      <div class="col">
+        <button type="submit" class="btn btn-primary" [disabled]="!companyForm.valid"  (click)="guardar()" >Guardar</button>
+      </div>
+    </div>
+
+
+  </form>
+
+</div>
