@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AltaEmpresa } from './alta_empresa';
-import { CompanyService } from '../company.service';
+import { CompanyServiceREST } from '../company.service';
 
 @Component({
   selector: 'app-crear-empresa',
@@ -26,7 +26,7 @@ export class CrearEmpresaComponent implements OnInit {
 
   });
 
-  constructor(private companyService: CompanyService) { }
+  constructor(private companyServiceREST: CompanyServiceREST) { }
 
   ngOnInit(): void {
   }
@@ -74,7 +74,7 @@ export class CrearEmpresaComponent implements OnInit {
 
       console.info(info);
 
-      this.companyService.crearEmpresa(info);
+      this.companyServiceREST.crearEmpresa(info);
 
   }
 

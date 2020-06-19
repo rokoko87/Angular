@@ -1,0 +1,62 @@
+// package:
+// file: company.proto
+
+import * as company_pb from "../generated/company_pb";
+import {grpc} from "@improbable-eng/grpc-web";
+
+type CompanyServiceLoadCompanies = {
+  readonly methodName: string;
+  readonly service: typeof CompanyService;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof company_pb.FiltrosRequest;
+  readonly responseType: typeof company_pb.CompanyResponse;
+};
+
+export class CompanyService {
+  static readonly serviceName: string;
+  static readonly LoadCompanies: CompanyServiceLoadCompanies;
+}
+
+export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
+export type Status = { details: string, code: number; metadata: grpc.Metadata }
+
+interface UnaryResponse {
+  cancel(): void;
+}
+interface ResponseStream<T> {
+  cancel(): void;
+  on(type: 'data', handler: (message: T) => void): ResponseStream<T>;
+  on(type: 'end', handler: (status?: Status) => void): ResponseStream<T>;
+  on(type: 'status', handler: (status: Status) => void): ResponseStream<T>;
+}
+interface RequestStream<T> {
+  write(message: T): RequestStream<T>;
+  end(): void;
+  cancel(): void;
+  on(type: 'end', handler: (status?: Status) => void): RequestStream<T>;
+  on(type: 'status', handler: (status: Status) => void): RequestStream<T>;
+}
+interface BidirectionalStream<ReqT, ResT> {
+  write(message: ReqT): BidirectionalStream<ReqT, ResT>;
+  end(): void;
+  cancel(): void;
+  on(type: 'data', handler: (message: ResT) => void): BidirectionalStream<ReqT, ResT>;
+  on(type: 'end', handler: (status?: Status) => void): BidirectionalStream<ReqT, ResT>;
+  on(type: 'status', handler: (status: Status) => void): BidirectionalStream<ReqT, ResT>;
+}
+
+export class CompanyServiceClient {
+  readonly serviceHost: string;
+
+  constructor(serviceHost: string, options?: grpc.RpcOptions);
+  loadCompanies(
+    requestMessage: company_pb.FiltrosRequest,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: company_pb.CompanyResponse|null) => void
+  ): UnaryResponse;
+  loadCompanies(
+    requestMessage: company_pb.FiltrosRequest,
+    callback: (error: ServiceError|null, responseMessage: company_pb.CompanyResponse|null) => void
+  ): UnaryResponse;
+}

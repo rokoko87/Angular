@@ -21,12 +21,12 @@ ng generate service [service name]
 1. Recordar que no es necesario usar el proxy, las rutas de los servicios van completas
 
 2. Construir el proyecto
-   ng build --prod 
+   ng build --prod
 
 3. Ejecutar el comando para instalar servidor (angular-http-server)
 
    npm install angular-http-server -g
-   
+
 4. Correr el servidor con la aplicacion construida
    angular-http-server --path [ruta Proyecto dist]   **En linux no se necesita ponerle --path
 
@@ -45,7 +45,7 @@ ng generate service [service name]
   }
 }
 
- 
+
 2. Editar el archivo package.json
    "start": "ng serve --proxy-config proxy.config.json",
 
@@ -102,3 +102,18 @@ docker ps -a
 
 -- Borrar todos los contenedores contenedores
 docker rm $(docker ps -a -q)
+
+
+
+
+
+/********************************************************************
+******     INSTRUCCIONES GRPC  *****************
+*********************************************************************/
+
+
+npm install @improbable-eng/grpc-web @types/google-protobuf google-protobuf grpc-web-client protoc ts-protoc-gen --save
+
+
+--Instruccion
+protoc --plugin=protoc-gen-ts=./node_modules/.bin/protoc-gen-ts --js_out=import_style=commonjs,binary:src/app/generated --ts_out=service=grpc-web:src/app/generated -I ./src/proto/ ./src/proto/*.proto

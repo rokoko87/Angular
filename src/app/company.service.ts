@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyService {
+export class CompanyServiceREST {
 
   empresas: EmpresaResult[] = [];
   corsHeaders: HttpHeaders;
