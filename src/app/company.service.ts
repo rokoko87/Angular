@@ -27,8 +27,8 @@ export class CompanyServiceREST {
 
 
   getEmpresas(): Observable<EmpresaResult[]> {
-    //const urlConsultarEmpresas = 'http://18.218.22.133:9000/company/load/';
-    const urlConsultarEmpresas = '/company/load/';
+    const urlConsultarEmpresas = 'http://localhost:9000/company/load/';
+    //const urlConsultarEmpresas = '/company/load/';
     let filtrosCompany = new Empresa(null, null, null, null, null, null, null,null, null, true);
     let empresaRequest = new EmpresaRequest(0, "angular", filtrosCompany);
 

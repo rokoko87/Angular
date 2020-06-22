@@ -18,7 +18,7 @@ export class EntrarEmpresaComponent implements OnInit {
   constructor(private companyServiceREST: CompanyServiceREST) {}
 
   ngOnInit(): void {
-    //this.consultarEmpresas();
+    this.consultarEmpresas();
     this.getEmpresasgRPC();
   }
 
@@ -36,7 +36,7 @@ export class EntrarEmpresaComponent implements OnInit {
     console.log("Ahora si");
     grpc.unary(CompanyService.LoadCompanies, {
     request: request,
-    host: "localhost:9095",
+    host: "http://localhost:9095",
     onEnd: res => {
       const { status, statusMessage, headers, message, trailers } = res;
       if (status === grpc.Code.OK && message) {
