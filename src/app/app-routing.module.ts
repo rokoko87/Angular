@@ -6,6 +6,7 @@ import { EntregasComponent } from '../app/entregas/entregas.component'
 import { ContactoComponent } from '../app/contacto/contacto.component'
 import { EntrarEmpresaComponent } from '../app/entrar-empresa/entrar-empresa.component'
 import { CrearEmpresaComponent } from '../app/crear-empresa/crear-empresa.component'
+import { MainComponent } from '../app/main/main.component'
 import { AggridComponent } from '../app/aggrid/aggrid.component'
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'entrar', component: EntrarEmpresaComponent },
   { path: 'crear', component: CrearEmpresaComponent },
   { path: 'aggrid', component: AggridComponent },
+  { path: 'main', component: MainComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 
 ];

@@ -15,6 +15,7 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { EntrarEmpresaComponent } from './entrar-empresa/entrar-empresa.component';
 import { CrearEmpresaComponent } from './crear-empresa/crear-empresa.component';
 import { AggridComponent } from './aggrid/aggrid.component';
+import { MainComponent } from './main/main.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { AggridComponent } from './aggrid/aggrid.component';
     ContactoComponent,
     EntrarEmpresaComponent,
     CrearEmpresaComponent,
-    AggridComponent
+    AggridComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
